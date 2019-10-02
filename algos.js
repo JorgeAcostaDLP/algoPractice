@@ -145,3 +145,14 @@ const addOne = (arr, target) => {
     }
     return false
   }
+
+  //dp fibonacci
+memo = {}
+const fib = (n) => {
+  if(memo[n]) return memo[n]
+  if(n <= 2) return 1
+  else {
+    f = fib(n-1) + fib(n-2)
+    memo[n] = f
+  return f}
+}
