@@ -102,7 +102,6 @@ const addOne = (arr, target) => {
   }
   
   const minimumIncrements = (array) => {
-    let sum  = 0
     let unique = false
     while(unique === false){
       let changes = 0
@@ -155,4 +154,15 @@ const fib = (n) => {
     f = fib(n-1) + fib(n-2)
     memo[n] = f
   return f}
+}
+
+
+const painting = (a) =>{
+  a.unshift(0)
+  sum = 0
+  for(i=0; i<a.length; i++){
+    if(a[i+1]-a[i]>0) sum += a[i+1-a[i]]
+    console.log(sum)
+}
+return sum 
 }
