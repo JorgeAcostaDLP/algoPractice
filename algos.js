@@ -203,23 +203,6 @@ function kDifference(arr, k) {
 }
 
 function consecutive(num) {
-    // Write your code here
-    let ans = 0
-    let start = 1
-    let accum = 2
-    let accumulator = 0
-    let check
-    while (start<num){
-        if(check === num) ans++
-        if(check <num) accum++
-        if(check > num) start++
-
-        accunulator = start + accum
-    }
-    return ans
-}
-
-function consecutive(num) {
   let ans = 0
   let start = end = 1
   let sum = 0
@@ -240,3 +223,26 @@ function consecutive(num) {
   }
 return ans
 }
+
+// Number of consecutive subArrays that multiplied are equal or less than target Input: nums = [10, 5, 2, 6], k = 100 Output: 8
+const maxConsecutiveProduct = (array, target)=>{
+
+  let ans = []
+  let product = 1
+
+  for(i = 0; i < array.length; i++) {
+    for(j= i; j < array.length; j++) {
+        product = arrayProduct(array.slice(i,j+1))   
+        console.log(array.slice(i,j+1))
+        if(product < target)
+        ans.push(product)
+      }
+    product = 1
+    }
+  
+return ans.length
+}
+
+const arrayProduct = (arr) => arr.reduce((a,b) => a*b,1)
+
+
