@@ -246,3 +246,101 @@ return ans.length
 const arrayProduct = (arr) => arr.reduce((a,b) => a*b,1)
 
 
+function compressedString(message) {
+  // Write your code here
+  // let arr = message.split()
+  let arr = message.split('')
+  let answer = arr[0]
+  
+  for(let i=1; i < arr.length; i++) {
+    let curCharacter = arr[i]
+
+
+    if(arr[i] === arr[i-1]) {curCount++}
+    if(curCount > 1) {answer += curCount.toString()   }
+    if(curCount ===1) {answer += curCharacter}
+    console.log(i)
+  }
+  return answer
+}
+
+
+function segment(x, arr) {
+  // Write your code here
+  let sizeOfSplit = x
+  let curMax = arr[0] 
+  for(i = 0; i < arr.length-x; i++) {
+    curArray = arr.slice(i,i+x)
+    localMax = Math.max(...curArray)
+    if(localMax > curMax) curMax = localMax
+    console.log(localMax)
+
+  }
+  return curMax
+}
+
+
+function factorial (n) {
+if (n === 0 || n === 1)
+  return 1;
+else
+  return factorial(n-1) * n;
+} 
+//total number of teams with k minimum members, l inclusive minimum skill, r maximum skill inclusive as well
+
+
+//Count all possible teams with a minimum of k members, l minimum skill, r maximum (inclusive in both accounts)
+const countTeams = (skills, k,l,r) => {
+newSkills = skills.filter(skill => skill<=r &&skill>=l)
+return combine(newSkills, k)
+}
+
+//Need to work out how this function or subset function works. It basically returns all combinations of an array with a minimum number of elements.
+const combine = function(a, min) {
+  const fn = function(n, src, got, all) {
+      if (n === 0) {
+          if (got.length > 0) {
+                    console.log(all)
+              all[all.length] = got;
+
+          }
+          return;
+      }
+      for (let j = 0; j < src.length; j++) {
+          fn(n - 1, src.slice(j + 1), got.concat([src[j]]), all);
+      }
+      return;
+  }
+  let all = [];
+  for (let i = min; i < a.length; i++) {
+
+      fn(i, a, [], all);
+  }
+  all.push(a);
+  return all}
+
+//Second combiantion function. Both work. Both are foreign to me.
+  function subset(arra, arra_size)
+{
+  var result_set = [], 
+      result;
+  for(var x = 0; x < Math.pow(2, arra.length); x++)
+  {
+  result = [];
+  i = arra.length - 1; 
+   do
+    {
+    if( (x & (1 << i)) !== 0)
+        {
+           result.push(arra[i]);
+         }
+      }  while(i--);
+
+  if( result.length >= arra_size)
+     {
+        result_set.push(result);
+      }
+  }
+
+  return result_set; 
+}
