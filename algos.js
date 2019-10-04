@@ -184,3 +184,59 @@ const painting = (a) =>{
 }
 return sum 
 }
+
+function kDifference(arr, k) {
+    // Write your code here
+    let answer = []
+    for(let i = 0; i<arr.length; i++) {
+        for(let j = 0; j<arr.length; j++){
+            if(i===j) continue
+            let distinct = (answer.indexOf(arr[j])===-1 || answer.indexOf(arr[i])===-1)
+            console.log(distinct)
+            if(Math.abs(arr[j]-arr[i]) === k && distinct) {
+                answer.push(arr[j])
+                answer.push(arr[i])
+            }
+        }
+    }
+    return answer.length/2
+}
+
+function consecutive(num) {
+    // Write your code here
+    let ans = 0
+    let start = 1
+    let accum = 2
+    let accumulator = 0
+    let check
+    while (start<num){
+        if(check === num) ans++
+        if(check <num) accum++
+        if(check > num) start++
+
+        accunulator = start + accum
+    }
+    return ans
+}
+
+function consecutive(num) {
+  let ans = 0
+  let start = end = 1
+  let sum = 0
+  while(start <= num/2+1) {
+    sum += end
+
+    if(sum === num){
+      ans++
+    }
+    if(sum < num)
+    end++
+
+    if(sum > num){
+    start++
+    sum=0
+    end=start
+  }
+  }
+return ans
+}
